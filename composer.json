@@ -1,5 +1,5 @@
 {
-  "name": "otparya-vendor/otp-arya",
+  "name": "otparya/otp-arya",
   "description": "A sample package for OTP functionality",
   "type": "library",
   "require": {
@@ -8,13 +8,13 @@
   },
   "autoload": {
     "psr-4": {
-      "OtparyaVendor\\OtpArya\\": "src/"
+      "Otparya\\OtpArya\\": "src/"
     }
   },
   "extra": {
     "laravel": {
       "providers": [
-        "OtparyaVendor\\OtpArya\\OtpAryaServiceProvider"
+        "Otparya\\OtpArya\\OtpAryaServiceProvider"
       ]
     }
   }

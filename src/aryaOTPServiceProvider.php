@@ -1,27 +1,41 @@
 <?php
-namespace YourVendor\YourPackage;
+
+namespace Otparya\OtpArya;
 
 use Illuminate\Support\ServiceProvider;
 
-class YourPackageNameServiceProvider extends ServiceProvider
+class OtpAryaServiceProvider extends ServiceProvider
 {
+    /**
+     * Register any application services.
+     *
+     * @return void
+     */
     public function register()
     {
-        // ثبت مسیرها، کانفیگ‌ها یا دستورات
-        $this->mergeConfigFrom(__DIR__.'/../config/otp-arya.php', 'otp-arya');
+        // Merge configuration file
+        $this->mergeConfigFrom(
+            __DIR__ . '/../config/otp-arya.php',
+            'otp-arya'
+        );
     }
 
+    /**
+     * Bootstrap any package services.
+     *
+     * @return void
+     */
     public function boot()
     {
-        // ثبت فایل‌های مایگریشن
-        $this->loadMigrationsFrom(__DIR__.'/Database/migrations');
+        // Load migrations
+        $this->loadMigrationsFrom(__DIR__ . '/Database/migrations');
 
-        // ثبت فایل‌های route
-        $this->loadRoutesFrom(__DIR__.'/routes/web.php');
+        // Load routes
+        $this->loadRoutesFrom(__DIR__ . '/routes/web.php');
 
-        // انتشار تنظیمات یا فایل‌ها
+        // Publish configuration file
         $this->publishes([
-            __DIR__.'/../config/otp-arya.php' => config_path('otp-arya.php'),
+            __DIR__ . '/../config/otp-arya.php' => config_path('otp-arya.php'),
         ], 'config');
     }
 }
