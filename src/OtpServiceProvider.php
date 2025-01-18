@@ -1,10 +1,10 @@
 <?php
 
-namespace Otparya\OtpArya;
+namespace Siteiran\Otp;
 
 use Illuminate\Support\ServiceProvider;
 
-class OtpAryaServiceProvider extends ServiceProvider
+class OtpServiceProvider extends ServiceProvider
 {
     /**
      * Register any application services.
@@ -15,8 +15,8 @@ class OtpAryaServiceProvider extends ServiceProvider
     {
         // Merge configuration file
         $this->mergeConfigFrom(
-            __DIR__ . '/../config/otp-arya.php',
-            'otp-arya'
+            __DIR__ . '/../config/otp.php',
+            'otp'
         );
     }
 
@@ -35,7 +35,7 @@ class OtpAryaServiceProvider extends ServiceProvider
 
         // Publish configuration file
         $this->publishes([
-            __DIR__ . '/../config/otp-arya.php' => config_path('otp-arya.php'),
+            __DIR__ . '/../config/otp.php' => config_path('otp.php'),
         ], 'config');
     }
 }
