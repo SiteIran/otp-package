@@ -30,8 +30,8 @@ class OtpServiceProvider extends ServiceProvider
         // Load migrations
         $this->loadMigrationsFrom(__DIR__ . '/Database/migrations');
 
-        // Load routes
-        $this->loadRoutesFrom(__DIR__ . '/routes/web.php');
+        // Load API routes
+        $this->loadRoutesFrom(__DIR__ . '/routes/api.php');
 
         // Publish configuration file
         $this->publishes([
