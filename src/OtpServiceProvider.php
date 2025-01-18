@@ -1,39 +1,21 @@
 <?php
 
-namespace Siteiran\Otp;
+namespace Siteiran\OtpPackage;
 
 use Illuminate\Support\ServiceProvider;
 
 class OtpServiceProvider extends ServiceProvider
 {
-    /**
-     * Register any application services.
-     *
-     * @return void
-     */
     public function register()
     {
-        // Merge configuration file
-        $this->mergeConfigFrom(
-            __DIR__ . '/../config/otp.php',
-            'otp'
-        );
+        $this->mergeConfigFrom(__DIR__ . '/../config/otp.php', 'otp');
     }
 
-    /**
-     * Bootstrap any package services.
-     *
-     * @return void
-     */
     public function boot()
     {
-        // Load migrations
-        $this->loadMigrationsFrom(__DIR__ . '/Database/migrations');
+        $this->loadMigrationsFrom(__DIR__ . '/../Database/migrations');
+        $this->loadRoutesFrom(__DIR__ . '/../routes/api.php');
 
-        // Load API routes
-        $this->loadRoutesFrom(__DIR__ . '/routes/api.php');
-
-        // Publish configuration file
         $this->publishes([
             __DIR__ . '/../config/otp.php' => config_path('otp.php'),
         ], 'config');
